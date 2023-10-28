@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/black">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:columnCount="1"
+            android:rowCount="4">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+
+            <ImageView
+            android:id="@+id/image3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:clickable="true"
+            android:contentDescription="@string/side_sheet_behavior"
+            android:layout_gravity="center_horizontal"
+            android:focusable="true"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/image6"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/image7"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:id="@+id/image8"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:clickable="true"
+                android:contentDescription="@string/side_sheet_behavior"
+                android:layout_gravity="center_horizontal"
+                android:focusable="true"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <EditText
+                android:id="@+id/editText8"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="@string/input_text"
+                android:inputType="text"
+                android:background="@color/white"
+                android:layout_marginBottom="40dp"/>
+
+            <EditText
+                android:id="@+id/tableNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Enter table name"
+                android:inputType="text"
+                android:background="@color/white"
+                android:layout_marginBottom="20dp"/>
+
+            <Button
+                android:id="@+id/saveIntoDB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/btn_save_into_db" />
+
+
+        </GridLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="to_db_btn">MAKE WORLDS</string>
+    <string name="ImageView">Image view</string>
+    <string name="btn_save_into_db">SAVE</string>
+    <string name="input_text">INPUT TEXT</string>
+    <string name="to_data_show_temp">DATA SHOW TEMP</string>
+</resources>
