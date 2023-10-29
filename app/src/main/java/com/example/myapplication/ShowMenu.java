@@ -42,7 +42,8 @@ public class ShowMenu extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedTableName = tableNames.get(position);
 
-                Intent intent = new Intent(ShowMenu.this, DisplayImages.class);
+                Intent intent = new Intent(ShowMenu.this, StartTournamentActivity.class);
+
                 intent.putExtra("tableName", selectedTableName);
                 startActivity(intent);
             }

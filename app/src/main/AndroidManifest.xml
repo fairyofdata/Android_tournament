@@ -37,7 +37,15 @@
             android:name=".DisplayImages"
             android:exported="true">
         </activity>
-
+        <activity
+            android:name=".SelectNodeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StartTournamentActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ShowWinnerActivity"
+            android:exported="true"/>
 
 
     </application>
