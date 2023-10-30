@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -25,7 +26,9 @@ class StartTournamentActivity : AppCompatActivity() {
     private val coroutineScope = CoroutineScope(Dispatchers.Main + job)
     private var continuation: Continuation<Unit>? = null
     private lateinit var testTournament: TournamentTree
-    private lateinit var dbHelper: DBHelper
+    private lateinit var dataHandler: DataHandler
+
+    private var playerNames = mutableListOf<String>() // playerNames를 MutableList로 선언
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,19 +36,30 @@ class StartTournamentActivity : AppCompatActivity() {
         // tableName, 해당하는 image, text 값 불러오기
         val tableName: String? = intent?.extras?.getString("tableName")
         if (tableName == null) {        // if tableName 전송 오류 -> finish();
+            Toast.makeText(this, "Table Name is NULL", Toast.LENGTH_SHORT).show()
             finish()
             return
+        } else if (tableName != null) {
+            Toast.makeText(this, "TableOn", Toast.LENGTH_SHORT).show()
+            dataHandler = DataHandler(this, tableName)
+            try {
+                loadTableData()
+            } catch (e: Exception) {
+                Log.e("TestTableImage", "Error loading table data: ${e.localizedMessage}")
+                e.printStackTrace()
+                finish()
+                return
+            }
+        } else {
+            Log.e("TestTableImage", "Table name not provided.")
+            finish()
         }
-        dbHelper = DBHelper(this)
-        val (imageArray, contentArray) = DataUtils.retrieveData(dbHelper, tableName);
-        // val firstImage = imageArray[0]
-        // val firstContent = contentArray[0]
 
 
 
         setContentView(R.layout.activity_start_tournament) // StartTournamentActivity에 연결된 xml 레이아웃
-        val playerNames = contentArray.subList(0, 8).toTypedArray()
-        testTournament = TournamentTree(playerNames) // TournamentTree testTournament 생성
+
+        testTournament = TournamentTree(playerNames.toTypedArray()) // TournamentTree testTournament 생성
 
 
 
@@ -67,6 +81,26 @@ class StartTournamentActivity : AppCompatActivity() {
             }
 
         }
+    }
+    private fun loadTableData(): List<String> { // 리턴 타입을 List<String>으로 변경
+        val dataList = dataHandler.getAllData()
+        val names = mutableListOf<String>() // 로컬 변수로 names 리스트 선언
+
+        if (dataList.isNotEmpty()) {
+            Log.d("TestTableImage", "Data loaded successfully. Count: ${dataList.size}")
+            for (data in dataList) { // dataList의 모든 요소를 순회
+                val image: Bitmap = data.first
+                val text: String = data.second
+
+                names.add(text) // names 리스트에 text 값을 추가
+
+            }
+        } else {
+            Log.e("TestTableImage", "No data found in table.")
+        }
+
+        playerNames = names // 멤버 변수 playerNames에 names 값을 할당
+        return names // names 리스트를 반환
     }
 
     private suspend fun bfsTraversalByLevel(
