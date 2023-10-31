@@ -10,12 +10,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이상형월드컵 우승" />
+    <ImageView
+        android:id = "@+id/image3"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content"
+        android:src = "@drawable/default_cover"/>
 
     <Button
         android:id="@+id/buttonNode3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="버튼에 대한 설명"/>
+
 
 
 

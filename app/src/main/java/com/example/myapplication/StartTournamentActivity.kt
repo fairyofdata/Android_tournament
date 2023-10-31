@@ -29,6 +29,7 @@ class StartTournamentActivity : AppCompatActivity() {
     private lateinit var dataHandler: DataHandler
 
     private var playerNames = mutableListOf<String>() // playerNames를 MutableList로 선언
+    private var playerImages = mutableListOf<Bitmap>() // playerImages를 MutableList로 선언
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +44,7 @@ class StartTournamentActivity : AppCompatActivity() {
             Toast.makeText(this, "TableOn", Toast.LENGTH_SHORT).show()
             dataHandler = DataHandler(this, tableName)
             try {
-                loadTableData()
+                loadTableData()       // Pair 형식으로 names, images를 반환함.
             } catch (e: Exception) {
                 Log.e("TestTableImage", "Error loading table data: ${e.localizedMessage}")
                 e.printStackTrace()
@@ -82,9 +83,10 @@ class StartTournamentActivity : AppCompatActivity() {
 
         }
     }
-    private fun loadTableData(): List<String> { // 리턴 타입을 List<String>으로 변경
+    private fun loadTableData(): Pair<List<String>, List<Bitmap>> { // return [(text, image), ...] as Pair
         val dataList = dataHandler.getAllData()
         val names = mutableListOf<String>() // 로컬 변수로 names 리스트 선언
+        val images = mutableListOf<Bitmap>()
 
         if (dataList.isNotEmpty()) {
             Log.d("TestTableImage", "Data loaded successfully. Count: ${dataList.size}")
@@ -93,6 +95,7 @@ class StartTournamentActivity : AppCompatActivity() {
                 val text: String = data.second
 
                 names.add(text) // names 리스트에 text 값을 추가
+                images.add(image)
 
             }
         } else {
@@ -100,7 +103,8 @@ class StartTournamentActivity : AppCompatActivity() {
         }
 
         playerNames = names // 멤버 변수 playerNames에 names 값을 할당
-        return names // names 리스트를 반환
+        playerImages = images   // images 도..
+        return Pair(names, images) // names, images 둘 다 반환...(혹시 모르니)
     }
 
     private suspend fun bfsTraversalByLevel(
