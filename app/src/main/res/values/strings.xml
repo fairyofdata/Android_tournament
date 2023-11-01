@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="to_db_btn">MAKE WORLDS</string>
+    <string name="to_db_btn">이어서하기</string>
     <string name="ImageView">Image view</string>
-    <string name="btn_save_into_db">SAVE</string>
-    <string name="input_text">INPUT TEXT</string>
-    <string name="to_data_show_temp">DATA SHOW TEMP</string>
+    <string name="btn_save_into_db">저장하기</string>
+    <string name="input_text">항목 내용을 입력하세요.</string>
+    <string name="to_data_show_temp">새로하기</string>
 </resources>

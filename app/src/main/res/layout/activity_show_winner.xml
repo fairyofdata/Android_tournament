@@ -4,23 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/win">
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이상형월드컵 우승" />
-    <ImageView
-        android:id = "@+id/image3"
-        android:layout_width = "wrap_content"
-        android:layout_height = "wrap_content"
-        android:src = "@drawable/default_cover"/>
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#00BDBDBD"> <!-- 두 번째 박스 설정 -->
 
-    <Button
-        android:id="@+id/buttonNode3"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="우승을 축하합니다!"
+            android:textSize="32sp"/>
+
+        <ImageView
+            android:id = "@+id/ImageButton3"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src = "@drawable/default_cover" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="버튼에 대한 설명"/>
+
+    <Button
+        android:id="@+id/MenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="처음으로"
+        android:contentDescription="버튼에 대한 설명" />
 
 
 
