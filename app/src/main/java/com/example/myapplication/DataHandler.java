@@ -15,6 +15,8 @@ import java.util.List;
 
 import java.io.ByteArrayOutputStream;
 
+import kotlin.Triple;
+
 public class DataHandler {
     private String tableName;
     private DBHelper dbHelper;
@@ -46,19 +48,22 @@ public class DataHandler {
         bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
         return stream.toByteArray();
     }
-    public List<Pair<Bitmap, String>> getAllData() {
+    public List<Triple<Integer, Bitmap, String>> getAllData() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Log.d("DataHandler", "Database opened for reading.");
 
-        String query = "SELECT image, content FROM " + tableName;
+        String query = "SELECT _id, image, content FROM " + tableName;
         Cursor cursor = db.rawQuery(query, null);
         Log.d("DataHandler", "Query executed: " + query);
 
-        List<Pair<Bitmap, String>> dataList = new ArrayList<>();
+        List<Triple<Integer, Bitmap, String>> dataList = new ArrayList<>();
 
         if (cursor.moveToFirst()) {
             do {
                 Log.d("DataHandler", "Processing a new record.");
+
+                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex("_id"));
+                Log.d("DataHandler", "ID retrieved: " + id);
 
                 @SuppressLint("Range") byte[] imageBytes = cursor.getBlob(cursor.getColumnIndex("image"));
                 Log.d("DataHandler", "Image bytes retrieved.");
@@ -69,7 +74,7 @@ public class DataHandler {
                 @SuppressLint("Range") String content = cursor.getString(cursor.getColumnIndex("content"));
                 Log.d("DataHandler", "Content retrieved: " + content);
 
-                dataList.add(new Pair<>(image, content));
+                dataList.add(new Triple<>(id, image, content));
                 Log.d("DataHandler", "Record added to the list.");
             } while (cursor.moveToNext());
         } else {
@@ -81,5 +86,23 @@ public class DataHandler {
         Log.d("DataHandler", "Database closed.");
 
         return dataList;
+    }
+
+    public Bitmap getImageByText(String content) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String query = "SELECT image FROM " + tableName + " WHERE content = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{content});
+
+        Bitmap image = null;
+
+        if (cursor.moveToFirst()) {
+            @SuppressLint("Range") byte[] imageBytes = cursor.getBlob(cursor.getColumnIndex("image"));
+            image = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
+        }
+
+        cursor.close();
+        db.close();
+        return image;
     }
 }

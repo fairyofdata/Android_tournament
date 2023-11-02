@@ -29,7 +29,6 @@ class StartTournamentActivity : AppCompatActivity() {
     private lateinit var dataHandler: DataHandler
 
     private var playerNames = mutableListOf<String>() // playerNames를 MutableList로 선언
-    private var playerImages = mutableListOf<Bitmap>() // playerImages를 MutableList로 선언
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,29 +82,27 @@ class StartTournamentActivity : AppCompatActivity() {
 
         }
     }
-    private fun loadTableData(): Pair<List<String>, List<Bitmap>> { // return [(text, image), ...] as Pair
+    private fun loadTableData(): List<String> { // return [(text, image), ...] as Pair
         val dataList = dataHandler.getAllData()
         val names = mutableListOf<String>() // 로컬 변수로 names 리스트 선언
-        val images = mutableListOf<Bitmap>()
 
         if (dataList.isNotEmpty()) {
             Log.d("TestTableImage", "Data loaded successfully. Count: ${dataList.size}")
             for (data in dataList) { // dataList의 모든 요소를 순회
-                val image: Bitmap = data.first
-                val text: String = data.second
+                // val id: Int = data.first
+                // val image: Bitmap = data.second
+                val text: String = data.third
 
                 names.add(text) // names 리스트에 text 값을 추가
-                images.add(image)
-
             }
         } else {
             Log.e("TestTableImage", "No data found in table.")
         }
 
         playerNames = names // 멤버 변수 playerNames에 names 값을 할당
-        playerImages = images   // images 도..
-        return Pair(names, images) // names, images 둘 다 반환...(혹시 모르니)
+        return names// names, images 둘 다 반환...(혹시 모르니)
     }
+
 
     private suspend fun bfsTraversalByLevel(
             root: TreeNode?,
