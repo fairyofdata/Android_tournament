@@ -16,6 +16,8 @@ public class SelectNodeActivity extends AppCompatActivity {
     Button buttonNode1, buttonNode2; // 버튼 두개 생성
     TreeNode[] nodes; // 여기에 추가
 
+    DataHandler dataHandler;        // DataBase에서 image가져오기 위함
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
