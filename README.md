@@ -78,6 +78,16 @@ save 버튼을 누르면 table을 생성하게 되는데, 유저가 입력한 �
 - 추가적으로 이진 트리를 사용하는 과정에서 반복문 안에 Intent를 이용해서 트리상태구조를 업데이트 해야하는데 이 과정에서 비동기 처리를 사용했다
 
 ### 프로젝트 시연 영상
+<div>
+    <img src="readmeimage/스크린샷 2023-11-02 004009.png" width="250" height="400"/>
+    <img src="readmeimage/스크린샷 2023-11-02 004023.png" width="250" height="400"/>
+    <img src="readmeimage/스크린샷 2023-11-02 004033.png" width="250" height="400"/>
+    <img src="readmeimage/스크린샷 2023-11-02 091702.png" width="250" height="400"/>
+    <img src="readmeimage/스크린샷 2023-11-02 004056.png" width="250" height="400"/>
+    <img src="readmeimage/스크린샷 2023-11-02 004106.png" width="250" height="400"/>
+
+</div>
+
 
 [영상 보면서 설명 - 중간마다 짧게]
 
