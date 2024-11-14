@@ -1,4 +1,4 @@
-# SQLiteAndroid - 이상형 월드컵 Android 앱
+# 이상형 월드컵 📱
 
 SQLite를 활용하여 사용자가 직접 이상형 월드컵을 만들고 즐길 수 있는 Android 앱입니다.
 
